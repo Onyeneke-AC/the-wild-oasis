@@ -8,6 +8,7 @@ const Menu = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  position: relative;
 `;
 
 const StyledToggle = styled.button`
@@ -30,7 +31,7 @@ const StyledToggle = styled.button`
 `;
 
 const StyledList = styled.ul`
-  position: fixed;
+  position: absolute;
 
   background-color: var(--color-grey-0);
   box-shadow: var(--shadow-md);
@@ -87,14 +88,13 @@ function Toggle({ id }) {
 
   function handleClick(e) {
     const rect = e.target.closest("button").getBoundingClientRect();
-    console.log(id);
-    console.log(openId);
+
     setPosition({
       x: window.innerWidth - rect.width - rect.x,
       y: rect.y + rect.height + 8,
     });
 
-    openId === "" || id !== openId ? open(id) : close();
+    openId === "" || openId !== id ? open(id) : close();
   }
 
   return (
