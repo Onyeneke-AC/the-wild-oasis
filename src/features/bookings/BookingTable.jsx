@@ -8,7 +8,7 @@ import Pagination from "../../ui/Pagination";
 // import { useSearchParams } from "react-router-dom";
 
 function BookingTable() {
-  const { bookings, isLoading } = useBookings();
+  const { bookings, isLoading, count } = useBookings();
   // const [searchParams] = useSearchParams();
 
   if (isLoading) return <Spinner />;
@@ -56,7 +56,7 @@ function BookingTable() {
           )}
         />
         <Table.Footer>
-          <Pagination count={15} />
+          <Pagination count={count} />
         </Table.Footer>
       </Table>
     </Menus>
