@@ -10,7 +10,7 @@ export function useLogin() {
     mutationFn: ({ email, password }) => loginApi({ email, password }),
     onSuccess: (user) => {
       queryClient.setQueriesData(["user"], user);
-      navigate("/");
+      navigate("/dashboard", { replace: true });
     },
     onError: (err) => {
       toast.error("Unsuccessful login attempt. Check your email or password");
