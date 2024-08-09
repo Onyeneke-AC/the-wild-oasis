@@ -61,6 +61,7 @@ function BookingRow({
   },
 }) {
   const { checkout, isCheckingOut } = useCheckout();
+  console.log(startDate);
   const { deleteBooking, isDeletingBooking } = useDeleteBooking();
   const navigate = useNavigate();
 
